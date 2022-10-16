@@ -53,7 +53,14 @@ export default {
           label: '大方廣佛華嚴經 (圓道禪院恭誦)'
         }]
       }, {
-        label: '寶嚴禪寺圓道僧團 見輝法師'
+        label: '寶嚴禪寺圓道僧團 見輝法師',
+        children: [{
+          label: '寶嚴山寶嚴禪寺興建紀實'
+        }, {
+          label: '圓道僧團一二三事'
+        }, {
+          label: '金剛經寫禪 報導'
+        }]
       }],
       defaultProps: {
         children: 'children',

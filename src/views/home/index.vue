@@ -2,6 +2,7 @@
   <div class="home-container">
     <!-- 显示每日课程 -->
     <el-carousel
+      class="home-carousel"
       :interval="60*60*1000"
       :initial-index="4"
       type="card"
@@ -12,32 +13,33 @@
     >
       <el-carousel-item v-for="item in 5" :key="item">
         <el-card class="box-card">
+          <!-- 卡片头 -->
           <div slot="header" class="clearfix">
-            <span>卡片名称</span>
-            <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+            <span>10月11日 课程列表</span>
           </div>
-          <div v-for="o in 4" :key="o" class="text item">
-            {{'列表内容 ' + o }}
-          </div>
+          <!-- /卡片头 -->
+          <!-- 卡片内容-表格 -->
+          <el-table
+            class="card-table"
+            :data="tableData"
+            style="width: 100%">
+            <el-table-column
+              prop="date"
+              label="日期"
+              width="180">
+            </el-table-column>
+            <el-table-column
+              prop="name"
+              label="姓名"
+              width="180">
+            </el-table-column>
+            <el-table-column
+              prop="address"
+              label="地址">
+            </el-table-column>
+          </el-table>
+          <!-- /卡片内容-表格 -->
         </el-card>
-        <!-- <el-table
-          :data="tableData"
-          style="width: 100%">
-          <el-table-column
-            prop="date"
-            label="日期"
-            width="180">
-          </el-table-column>
-          <el-table-column
-            prop="name"
-            label="姓名"
-            width="180">
-          </el-table-column>
-          <el-table-column
-            prop="address"
-            label="地址">
-          </el-table-column>
-        </el-table> -->
       </el-carousel-item>
       <el-carousel-item>
         <h3 class="medium">明日课程预告  <a href="#">点击查看更多</a> </h3>
@@ -124,16 +126,6 @@ export default {
 </script>
 
 <style scoped lang="less">
-  .el-carousel__item {
-    .el-table__header-wrapper {
-      .el-table__header {
-        font-size: 6px;
-      }
-      .el-table__cell {
-        font-size: 6px;
-      }
-    }
-  }
   .el-carousel__item h3 {
     color: #475669;
     font-size: 14px;
@@ -147,10 +139,30 @@ export default {
   .el-carousel__item:nth-child(2n+1) {
     background-color: #d3dce6;
   }
+  .el-card {
+    margin: 1px;
+    border-radius: 0;
+    height: 100%;
+  }
   :deep(.el-table__cell) {
     padding: 4px 0;
   }
-  // card的样式
+  .box-card {
+    height: 152px;
+  }
+  :deep(.el-card__header) {
+    padding: 6px 60px;
+  }
+  :deep(.el-card__body) {
+    padding: 0px 20px;
+  }
+  .card-table {
+    font-size: 8px;
+  }
+  :deep(.el-table .cell) {
+    line-height: 15.5px;
+  }
+  // video card的样式
   .bottom {
     margin-top: 2px;
     line-height: 12px;

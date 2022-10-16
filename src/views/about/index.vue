@@ -1,5 +1,7 @@
 <template>
-  <div class="about-container">about页面</div>
+  <div class="about-container">
+    这里是宝严禅寺的学习视频网站
+  </div>
 </template>
 
 <script>

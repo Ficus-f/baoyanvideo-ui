@@ -45,6 +45,7 @@ export default {
 <style scoped lang="less">
   .layout-container {
     .layout-navmenu {
+      margin-bottom: 8px;
       .el-menu-item {
         font-size: 10px;
         line-height: 30px;
