@@ -16,7 +16,7 @@ export const postVideo = data => {
 // 获取视频详情
 export const getVideo = id => {
   return request({
-    method: 'POST',
+    method: 'GET',
     url: `/api/v1/video/${id}`
   })
 }

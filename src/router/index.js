@@ -11,10 +11,15 @@ const routes = [
     children: [
       {
         path: '',
-        name: 'video',
+        name: 'videoList',
         component: () => import('@/views/video')
       }
     ]
+  },
+  {
+    path: '/video/:videoID',
+    name: 'showVideo',
+    component: () => import('@/views/show')
   },
   {
     path: '/upload',

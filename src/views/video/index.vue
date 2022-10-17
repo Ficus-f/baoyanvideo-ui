@@ -7,7 +7,7 @@
             <div>
               <div class="video-title">{{video.title}}</div>
               <div class="video-bottom clearfix">
-                <span class="video-info">{{video.info.substring(0, 40)}}</span>
+                <span class="video-info">{{video.info.substring(0, 36)}}</span>
               </div>
             </div>
           </el-card>
@@ -68,19 +68,19 @@ export default {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  font-size: 10px;
+  font-size: 11px;
 }
 .video-bottom {
   margin-top: 4px;
 }
 .video-info {
   color: #909399;
-  font-size: 10px;
+  font-size: 9px;
 }
 .video-card {
   margin-bottom: 14px;
-  height: 80px;
   cursor: pointer;
+  min-height: 70px;
 }
 :deep(.el-card__body) {
   padding: 5px;
