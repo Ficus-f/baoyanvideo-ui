@@ -8,10 +8,7 @@
       @select="handleSelect"
       router
     >
-      <el-menu-item index="1" route="/">首页</el-menu-item>
-      <el-menu-item index="2" route="/course">全部课程</el-menu-item>
-      <el-menu-item index="3" route="/resource">资料</el-menu-item>
-      <el-menu-item index="4" route="/about">关于我们</el-menu-item>
+      <el-menu-item index="1" route="/">视频</el-menu-item>
     </el-menu>
     <!-- /标签导航栏 -->
     <!-- 子路由出口 -->
