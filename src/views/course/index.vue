@@ -1,71 +1,45 @@
 <template>
   <div class="course-container">
-    <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
+    <div class="top">
+      <el-row :gutter="20">
+        <el-col :xs="24" :sm="8" :md="8" v-for="video in videos" :key="video.id">
+          <el-card class="video-card" @click.native="goVideo(video)">
+            <img class="video-avatar" :src="video.avatar">
+            <div>
+              <div class="video-title">{{video.title}}</div>
+              <div class="video-bottom clearfix">
+                <span class="video-info">{{video.info.substring(0, 40)}}</span>
+              </div>
+            </div>
+          </el-card>
+        </el-col>
+      </el-row>
+      <div class="block">
+        <el-pagination
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :page-size="6"
+          layout="prev, pager, next"
+          :total="total">
+        </el-pagination>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { getVideos } from '@/api/video.js'
+
 export default {
   name: 'CourseIndex',
   components: {},
   props: {},
   data () {
     return {
-      data: [{
-        label: '楞严经',
-        children: [{
-          label: '秒懂楞嚴經 1000 日',
-          children: [{
-            label: '三级 1-1-1'
-          },
-          {
-            label: '【楞嚴禪七開示集】2021年楞嚴精進禪七 首屆'
-          }]
-        }]
-      }, {
-        label: '經論開示',
-        children: [{
-          label: '瑜伽師地論2022結夏課程 見輝法師',
-          children: [{
-            label: '三级 2-1-1'
-          }]
-        }, {
-          label: '禪宗永嘉集',
-          children: [{
-            label: '三级 2-2-1'
-          }]
-        }]
-      }, {
-        label: '見輝法師讀經系列',
-        children: [{
-          label: '見輝法師讀華嚴經',
-          children: [{
-            label: '三级 3-1-1'
-          }]
-        }, {
-          label: '見輝法師恭讀經典',
-          children: [{
-            label: '三级 3-2-1'
-          }]
-        }, {
-          label: '【幼幼華嚴讀經教材】'
-        }, {
-          label: '大方廣佛華嚴經 (圓道禪院恭誦)'
-        }]
-      }, {
-        label: '寶嚴禪寺圓道僧團 見輝法師',
-        children: [{
-          label: '寶嚴山寶嚴禪寺興建紀實'
-        }, {
-          label: '圓道僧團一二三事'
-        }, {
-          label: '金剛經寫禪 報導'
-        }]
-      }],
-      defaultProps: {
-        children: 'children',
-        label: 'label'
-      }
+      videos: [],
+      start: 0,
+      limit: 6,
+      total: 0
     }
   },
   computed: {},
@@ -73,12 +47,49 @@ export default {
   created () {},
   mounted () {},
   methods: {
-    handleNodeClick (data) {
-      console.log(data)
+    handleCurrentChange (val) {
+      this.start = this.limit * (val - 1) // val 页面
+      this.load()
+    },
+    async load () {
+      try {
+        const res = await getVideos()
+        this.videos = res.data.data
+      } catch (err) {
+        this.$notify.error({
+          title: '视频获取失败',
+          message: err
+        })
+      }
+    },
+    goVideo (video) {
+      this.$router.push({ name: 'showVideo', params: { videoID: video.id } })
     }
+  },
+  beforeMount () {
+    this.load()
   }
 }
 </script>
 
 <style scoped lang="less">
+.video-avatar {
+  width: 100%;
+}
+.video-title {
+  margin: 4px 0px 4px 0px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.video-bottom {
+  margin-top: 4px;
+}
+.video-info {
+  color: #909399;
+}
+.video-card {
+  margin-bottom: 14px;
+  cursor: pointer;
+}
 </style>

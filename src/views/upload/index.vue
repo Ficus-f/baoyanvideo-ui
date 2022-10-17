@@ -41,7 +41,7 @@ export default {
         const res = await postVideo(videoInfo)
         this.$notify({
           title: '视频上传成功',
-          message: `您上传的视频ID为${res.data.id}`,
+          message: `您上传的视频ID为${res.data.data.id}`,
           type: 'success'
         })
       } catch (err) {

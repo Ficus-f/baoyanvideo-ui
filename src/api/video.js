@@ -8,7 +8,7 @@ import request from '@/utils/request'
 export const postVideo = data => {
   return request({
     method: 'POST',
-    url: '/api/v1/videos',
+    url: '/api/v1/video',
     data
   })
 }
