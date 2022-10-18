@@ -16,8 +16,9 @@
       </el-col>
     </el-row>
     <div class="video-info">
-      <pre>{{video.info}}</pre>
+      <pre>视频简介：{{video.info}}</pre>
     </div>
+    <!-- <el-button type="primary" plain size="mini" @click="videoDownload">下载</el-button> -->
   </div>
 </template>
 
@@ -51,6 +52,9 @@ export default {
       } catch (error) {
         this.$notify.error(error)
       }
+    },
+    videoDownload () {
+      window.location.href = this.video.url
     }
   },
   components: {
@@ -64,7 +68,7 @@ export default {
 
 <style>
   .video-header {
-    margin-bottom: 16px;
+    margin-bottom: 8px;
   }
   .video-header h2{
     margin-bottom: 0px;
@@ -78,11 +82,15 @@ export default {
     white-space: nowrap;
   }
   .video-data {
-    margin-top: 6px;
+    margin-top: 3px;
     font-size: 12px;
     color: #999;
   }
   .video-info {
-    color: #111;
+    color: #18191c;
+    font-size: 12px;
+  }
+  pre {
+    margin: 5px;
   }
 </style>

@@ -80,7 +80,7 @@ export default {
 .video-card {
   margin-bottom: 14px;
   cursor: pointer;
-  min-height: 70px;
+  min-height: 80px;
 }
 :deep(.el-card__body) {
   padding: 5px;
