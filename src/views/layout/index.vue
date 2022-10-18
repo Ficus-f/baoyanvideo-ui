@@ -5,10 +5,12 @@
       :default-active="activeIndex"
       class="layout-navmenu"
       mode="horizontal"
-      @select="handleSelect"
       router
     >
-      <el-menu-item index="1" route="/">视频</el-menu-item>
+      <el-menu-item index="1" route="/">秒懂楞严1000日</el-menu-item>
+      <el-menu-item index="2" route="/guanxin">观心一支香</el-menu-item>
+      <el-menu-item index="3" route="/yuqie">瑜伽师地论</el-menu-item>
+      <el-menu-item index="4" route="/chanzong">禅宗永嘉集</el-menu-item>
     </el-menu>
     <!-- /标签导航栏 -->
     <!-- 子路由出口 -->
@@ -31,11 +33,7 @@ export default {
   watch: {},
   created () {},
   mounted () {},
-  methods: {
-    handleSelect (key, keyPath) {
-      console.log(key, keyPath)
-    }
-  }
+  methods: {}
 }
 </script>
 

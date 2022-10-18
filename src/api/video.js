@@ -22,9 +22,10 @@ export const getVideo = id => {
 }
 
 // 获取视频列表
-export const getVideos = () => {
+export const getVideos = (params) => {
   return request({
     method: 'GET',
-    url: '/api/v1/videos'
+    url: '/api/v1/videos',
+    params
   })
 }

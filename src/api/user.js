@@ -7,7 +7,14 @@ import request from '@/utils/request'
 export const login = data => {
   return request({
     method: 'POST',
-    url: '/app/v1/authorizations',
+    url: '/api/v1/user/login',
     data
+  })
+}
+
+export const checkMe = () => {
+  return request({
+    method: 'GET',
+    url: '/api/v1/user/me'
   })
 }

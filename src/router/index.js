@@ -5,6 +5,11 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/login')
+  },
+  {
     path: '/',
     name: 'layout',
     component: () => import('@/views/layout'),
@@ -13,6 +18,18 @@ const routes = [
         path: '',
         name: 'videoList',
         component: () => import('@/views/video')
+      }, {
+        path: '/guanxin',
+        name: 'guanxinVideoList',
+        component: () => import('@/views/video/GuanxinVideoList.vue')
+      }, {
+        path: '/yuqie',
+        name: 'yuqieVideoList',
+        component: () => import('@/views/video/YuqieVideoList.vue')
+      }, {
+        path: '/chanzong',
+        name: 'chanzongVideoList',
+        component: () => import('@/views/video/ChanzongVideoList.vue')
       }
     ]
   },

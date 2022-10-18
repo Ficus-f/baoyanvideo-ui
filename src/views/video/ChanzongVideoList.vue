@@ -21,7 +21,7 @@
 import { getVideos } from '@/api/video.js'
 
 export default {
-  name: 'LengYanVideoIndex',
+  name: 'ChanzongVideoIndex',
   components: {},
   props: {},
   data () {
@@ -44,7 +44,7 @@ export default {
     async load () {
       try {
         const param = {
-          alias: 'lengyan'
+          alias: 'chanzong'
         }
         const res = await getVideos(param)
         this.videos = res.data.data
