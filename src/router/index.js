@@ -30,6 +30,10 @@ const routes = [
         path: '/chanzong',
         name: 'chanzongVideoList',
         component: () => import('@/views/video/ChanzongVideoList.vue')
+      }, {
+        path: '/pusajie',
+        name: 'pusajieVideoList',
+        component: () => import('@/views/video/PusajieVideoList.vue')
       }
     ]
   },

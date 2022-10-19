@@ -13,6 +13,16 @@
           </el-card>
         </el-col>
       </el-row>
+      <div class="pagination">
+        <el-pagination
+          background
+          layout="prev, pager, next"
+          @current-change="handleCurrentChange"
+          :total="total"
+          :page-size="limit"
+          :small="true">
+        </el-pagination>
+      </div>
     </div>
   </div>
 </template>
@@ -28,7 +38,7 @@ export default {
     return {
       videos: [],
       start: 0,
-      limit: 6,
+      limit: 12,
       total: 0
     }
   },
@@ -37,17 +47,20 @@ export default {
   created () {},
   mounted () {},
   methods: {
-    handleCurrentChange (val) {
-      this.start = this.limit * (val - 1) // val 页面
+    handleCurrentChange (page) {
+      this.start = this.limit * (page - 1)
       this.load()
     },
     async load () {
       try {
         const param = {
-          alias: 'guanxin'
+          alias: 'guanxin',
+          start: this.start,
+          limit: this.limit
         }
         const res = await getVideos(param)
-        this.videos = res.data.data
+        this.videos = res.data.data.items
+        this.total = res.data.data.total
       } catch (err) {
         this.$notify.error({
           title: '视频获取失败',
@@ -87,5 +100,12 @@ export default {
 }
 :deep(.el-card__body) {
   padding: 5px;
+}
+.pagination {
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  line-height: var(--footer-height);
+  width: 100%;
 }
 </style>

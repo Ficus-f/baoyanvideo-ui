@@ -31,7 +31,7 @@
 import { getVideos } from '@/api/video.js'
 
 export default {
-  name: 'YuqieVideoIndex',
+  name: 'PusajieVideoIndex',
   components: {},
   props: {},
   data () {
@@ -54,7 +54,7 @@ export default {
     async load () {
       try {
         const param = {
-          alias: 'yuqie',
+          alias: 'pusajie',
           start: this.start,
           limit: this.limit
         }
