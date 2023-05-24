@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkBaoyan_video"]=self["webpackChunkBaoyan_video"]||[]).push([[325],{1325:function(a,e,r){r.r(e),r.d(e,{default:function(){return f}});var n=r(6252);const c=a=>((0,n.dD)("data-v-297c4bf4"),a=a(),(0,n.Cn)(),a),o={class:"error-page"},d=c((()=>(0,n._)("div",{class:"error-code"},"404",-1))),s=[d];function t(a,e){return(0,n.wg)(),(0,n.iD)("div",o,s)}var u=r(3744);const i={},v=(0,u.Z)(i,[["render",t],["__scopeId","data-v-297c4bf4"]]);var f=v}}]);
+//# sourceMappingURL=325.2de47fd0.js.map
